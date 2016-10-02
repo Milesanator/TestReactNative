@@ -20,8 +20,7 @@ import TheHeart from './app/components/TheHeart/TheHeart.js';
 class TestReactNative extends Component {
   render() {
     return (
-      <View style={styles.wrapper}>
-      <Image source={require('./app/images/LoginScreen.png')} style={styles.container}/>
+      <Image source={require('./app/images/LoginScreen.png')} style={styles.bgImage}>
         <TextInput
           style={styles.username}
           placeholder="Username"
@@ -33,32 +32,19 @@ class TestReactNative extends Component {
           onChangeText={(text) => this.setState({text})}
           secureTextEntry={true}
         />
-        <Navigator
-          style={styles.loginButton}
-          initialRoute={{ title: 'LoginScreen', index: 0 }}
-          renderScene={(route, navigator) => {
-            return <TheHeart title={route.title} />
-          }}
-        />
-      </View>
+      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  bgImage: {
     flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: null,
-    height: null,
-    backgroundColor: 'rgba(0,0,0,0)',
-    resizeMode: 'stretch',
   },
   username: {
       textAlign: 'center',
