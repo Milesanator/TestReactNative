@@ -10,25 +10,35 @@ import {
   StyleSheet,
   TextInput,
   Text,
+  Image,
+  Navigator,
   View
 } from 'react-native';
+
+import TheHeart from './app/components/TheHeart/TheHeart.js';
 
 class TestReactNative extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          CONNECTR
-        </Text>
+      <View style={styles.wrapper}>
+      <Image source={require('./app/images/LoginScreen.png')} style={styles.container}/>
         <TextInput
-          style={{styles.username}}
+          style={styles.username}
           placeholder="Username"
           onChangeText={(text) => this.setState({text})}
         />
         <TextInput
-          style={{styles.password}
+          style={styles.password}
           placeholder="Password"
           onChangeText={(text) => this.setState({text})}
+          secureTextEntry={true}
+        />
+        <Navigator
+          style={styles.loginButton}
+          initialRoute={{ title: 'LoginScreen', index: 0 }}
+          renderScene={(route, navigator) => {
+            return <TheHeart title={route.title} />
+          }}
         />
       </View>
     );
@@ -36,34 +46,35 @@ class TestReactNative extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#000000',
+  container: {
+    // flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    width: null,
+    height: null,
+    backgroundColor: 'rgba(0,0,0,0)',
+    resizeMode: 'stretch',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  username {
+  username: {
       textAlign: 'center',
-      margin: 10,
+      height: 40,
       borderColor: 'grey',
       borderWidth: 1,
   },
-  password {
+  password: {
       textAlign: 'center',
-      margin: 10,
+      height: 40,
       borderColor: 'grey',
       borderWidth: 1,
+  },
+  loginButton: {
+
+
   },
 });
 
