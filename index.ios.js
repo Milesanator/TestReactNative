@@ -7,61 +7,32 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  TextInput,
-  Text,
-  Image,
-  Navigator,
-  View
 } from 'react-native';
 
 import TheHeart from './app/components/TheHeart/TheHeart.js';
+import Login from './app/components/Login/Login.js';
+import EmailSignup from './app/components/EmailSignup/EmailSignup.js';
+import ForgottenPassword from './app/components/ForgottenPassword/ForgottenPassword.js';
+import Settings from './app/components/Settings/Settings.js';
+import MessageList from './app/components/MessageList/MessageList.js';
+
+import {Scene, Router} from 'react-native-router-flux';
 
 class TestReactNative extends Component {
   render() {
-    return (
-      <Image source={require('./app/images/LoginScreen.png')} style={styles.bgImage}>
-        <TextInput
-          style={styles.username}
-          placeholder="Username"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <TextInput
-          style={styles.password}
-          placeholder="Password"
-          onChangeText={(text) => this.setState({text})}
-          secureTextEntry={true}
-        />
-      </Image>
-    );
+    return <Router>
+      <Scene key="root">
+        <Scene key="login" component={Login} title=""/>
+        <Scene key="the_heart" component={TheHeart} title=""/>
+        <Scene key="email_signup" component={EmailSignup} title=""/>
+        <Scene key="forgotten_password" component={ForgottenPassword} title=""/>
+        <Scene key="settings" component={Settings} title="Settings"/>
+        <Scene key="message_list" component={MessageList} title=""/>
+      </Scene>
+    </Router>
   }
 }
 
-const styles = StyleSheet.create({
-  bgImage: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor:'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  username: {
-      textAlign: 'center',
-      height: 40,
-      borderColor: 'grey',
-      borderWidth: 1,
-  },
-  password: {
-      textAlign: 'center',
-      height: 40,
-      borderColor: 'grey',
-      borderWidth: 1,
-  },
-  loginButton: {
 
-
-  },
-});
 
 AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
