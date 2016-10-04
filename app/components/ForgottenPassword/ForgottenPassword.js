@@ -15,14 +15,14 @@ export default class ForgottenPassword extends Component {
   render() {
     return (
       <Image source={require('../../../app/images/ForgottenPassword.png')} style={styles.bgImage}>
-        <Text>{emailHeading}</Text>
-        <Text>{emailText}</Text>
+        <Text style={styles.emailHeading}>{emailHeading}</Text>
+        <Text style={styles.emailText}>{emailText}</Text>
         <TextInput
           style={styles.email}
           placeholder=""
           onChangeText={(text) => this.setState({text})}
         />
-        <View>
+        <View style={styles.emailButton}>
           <Text>Send</Text>
         </View>
       </Image>
@@ -39,12 +39,36 @@ const styles = StyleSheet.create({
     height: undefined,
     backgroundColor:'transparent',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   email: {
-      textAlign: 'center',
       height: 40,
       borderColor: 'white',
       borderWidth: 1,
+      marginLeft: 15,
+      marginRight: 15,
   },
+  emailHeading: {
+    color: 'white',
+    fontSize: 40,
+    textShadowColor: 'black',
+    textShadowRadius: 1,
+    marginBottom: 20,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  emailText: {
+    color: 'white',
+    margin: 15
+  },
+  emailButton: {
+    margin: 10,
+    height: 36,
+    backgroundColor: '#f92525',
+    borderColor: '#f92525',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    width: 80,
+    justifyContent: 'center'
+  }
 });
