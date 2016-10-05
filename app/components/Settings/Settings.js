@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
+import Row from './Row.js'
 
 export default class Settings extends Component {
   constructor() {
@@ -21,8 +22,9 @@ export default class Settings extends Component {
   render() {
     return (
       <ListView
+        style={styles.list}
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={(rowData) => <Row {rowData}/>}
       />
     );
   }
@@ -31,5 +33,7 @@ export default class Settings extends Component {
 
 
 const styles = StyleSheet.create({
-
+  list: {
+    paddingTop: 50,
+  },
 });

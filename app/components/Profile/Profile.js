@@ -14,7 +14,9 @@ import { Actions } from 'react-native-router-flux';
 export default class Profile extends Component {
   render() {
     return (
+      <Image source={require('../../../app/images/Profile.png')} style={styles.bgImage}>
 
+      </Image>
     );
   }
 }
@@ -22,5 +24,12 @@ export default class Profile extends Component {
 
 
 const styles = StyleSheet.create({
-
+  bgImage: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

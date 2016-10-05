@@ -31,6 +31,9 @@ const options = {
   auto: 'placeholders',
 };
 
+const userIcon = (<Icon name="user" size={30} color="#900" />);
+const passwordIcon = (<Icon name="lock" size={30} color="#900" />);
+
 var Login = React.createClass({
   async _onValueChange(item, selectedValue) {
     try {
