@@ -15,21 +15,21 @@ export default class ForgottenPassword extends Component {
   render() {
     return (
       <Image source={require('../../../app/images/ForgottenPassword.png')} style={styles.bgImage}>
-        <Text style={styles.emailHeading}>{emailHeading}</Text>
-        <Text style={styles.emailText}>{emailText}</Text>
+        <Text style={styles.heading}>{emailHeading}</Text>
+        <Text style={styles.text}>{emailText}</Text>
         <TextInput
           style={styles.email}
           placeholder=""
           onChangeText={(text) => this.setState({text})}
         />
-        <View style={styles.emailButton}>
-          <Text>Send</Text>
+        <View style={styles.button}>
+          <Image source={require('../../../app/images/Button.png')} style={styles.buttonBg}><Text style={styles.buttonText}>Send</Text></Image>
         </View>
       </Image>
     );
   }
 }
-const emailHeading = "Your Email";
+const emailHeading = "Your E-mail";
 const emailText = "If you have signed up for an account with your e-mail and forgotten your username or password, please type in your e-mail and we'll send you further instructions";
 
 const styles = StyleSheet.create({
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
       marginLeft: 15,
       marginRight: 15,
   },
-  emailHeading: {
+  heading: {
     color: 'white',
     fontSize: 40,
     textShadowColor: 'black',
@@ -56,19 +56,28 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
   },
-  emailText: {
+  text: {
     color: 'white',
     margin: 15
   },
-  emailButton: {
+  button: {
     margin: 10,
     height: 36,
-    backgroundColor: '#f92525',
-    borderColor: '#f92525',
+    backgroundColor:'transparent',
+    borderColor: 'transparent',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
+    marginLeft: 15,
     width: 80,
-    justifyContent: 'center'
+    justifyContent: 'center',
+
+  },
+  buttonText: {
+    color: 'white',
+  },
+  buttonBg: {
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
