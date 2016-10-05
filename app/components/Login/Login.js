@@ -14,6 +14,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Icon from '../../../node_modules/react-native-vector-icons/FontAwesome';
 import FacebookLogin from '../FacebookLogin/FacebookLogin.js';
+import Store from 'react-native-simple-store';
 
 var t = require('tcomb-form-native');
 
@@ -84,8 +85,13 @@ var Login = React.createClass({
           "Login Success!",
         ),
         this._onValueChange(STORAGE_KEY, responseData.id_token)
+        // Save in Store
+        Store.save('user', {
+          'username': value.username,
+          'authToken': STORAGE_KEY
+        });
         // TODO: validate STORAGE_KEY and force the_heart on load of Login
-        Actions.the_heart();
+        Actions.home();
       })
       .done();
     }

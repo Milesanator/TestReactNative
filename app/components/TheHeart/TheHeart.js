@@ -7,6 +7,7 @@ import {
   Text
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Store from 'react-native-simple-store';
 
 export default class TheHeart extends Component {
   render() {
@@ -15,12 +16,18 @@ export default class TheHeart extends Component {
       <View style={styles.messageListButton}>
         <Text onPress={Actions.message_list}>chat</Text>
       </View>
-
+      <View style={styles.logoutButton}>
+        <Text onPress={this._userLogout}>Logout</Text>
+      </View>
       <View style={styles.settingsButton}>
         <Text onPress={Actions.settings}>settings</Text>
       </View>
       </Image>
     );
+  }
+  _userLogout () {
+    Store.delete('user');
+    Actions.home();
   }
 }
 
@@ -37,6 +44,11 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom: 0,
     left: 0,
+  },
+  logoutButton: {
+    position: 'absolute',
+    bottom: 0,
+    right: 160,
   },
   settingsButton: {
     position: 'absolute',

@@ -15,6 +15,7 @@ import EmailSignup from './app/components/EmailSignup/EmailSignup.js';
 import ForgottenPassword from './app/components/ForgottenPassword/ForgottenPassword.js';
 import Settings from './app/components/Settings/Settings.js';
 import MessageList from './app/components/MessageList/MessageList.js';
+import Home from './app/components/Home/Home.js';
 
 import {Scene, Router} from 'react-native-router-flux';
 
@@ -22,6 +23,7 @@ class TestReactNative extends Component {
   render() {
     return <Router>
       <Scene key="root">
+        <Scene key="home" component={Home} title=""/>
         <Scene key="login" component={Login} title=""/>
         <Scene key="the_heart" component={TheHeart} title=""/>
         <Scene key="email_signup" component={EmailSignup} title=""/>
